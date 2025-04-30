@@ -1,0 +1,27 @@
+# ninja log v5
+0	3	0	/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/armeabi-v7a/CMakeFiles/cmake.verify_globs	e4fdf69700b5a777
+2	3096	1746045521655659353	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/States.cpp.o	5878ad79a4a853b0
+3	3543	1746045522085634490	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/EventEmitters.cpp.o	cab08389ed3661c0
+2	3591	1746045522144631083	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/EventEmitters.cpp.o	23037b01973c83b6
+1	3594	1746045522144631083	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/BlePlxJSI-generated.cpp.o	65b71d5512f92094
+2	4212	1746045522768595053	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/Props.cpp.o	80ebde57e72d371a
+4	4271	1746045522827591646	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/Props.cpp.o	9cbbedd00550325e
+2	4301	1746045522851590260	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/ComponentDescriptors.cpp.o	427e66a7d16cf36a
+2	4306	1746045522847590491	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/ShadowNodes.cpp.o	af9653b2473e186d
+1	4367	1746045522924586045	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/BlePlx-generated.cpp.o	e3cb7de1e8e0e85d
+6	4544	1746045523092576354	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/RNPermissionsSpecJSI-generated.cpp.o	17d68e6b116993db
+2	4644	1746045523191570648	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/RNPermissionsSpec-generated.cpp.o	a6e20a4833d8fa79
+2	4863	1746045523415557736	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/ComponentDescriptors.cpp.o	3074416d2807ac18
+1	5021	1746045523572548687	CMakeFiles/appmodules.dir/home/thiago/placar-inocoop/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	4d0e589c40db304d
+1	5143	1746045523688542001	CMakeFiles/appmodules.dir/OnLoad.cpp.o	4f9193c4003f256e
+3544	6301	1746045524862474419	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/States.cpp.o	33a1e6d1f154b7a
+4212	6431	1746045524996466709	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/EventEmitters.cpp.o	4a98358e17b2d9e5
+3591	6718	1746045525275450683	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/RNVectorIconsSpec-generated.cpp.o	25dbd88dd37ccb16
+3105	6826	1746045525387444250	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/ShadowNodes.cpp.o	216074e7d35881a7
+4301	6929	1746045525488438448	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/RNVectorIconsSpecJSI-generated.cpp.o	faefa2bb7bb973ad
+4367	6932	1746045525497437931	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/States.cpp.o	c795c95a04ebb228
+3595	7099	1746045525661428512	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ComponentDescriptors.cpp.o	d909b5808b7ac29b
+4272	7339	1746045525903414612	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/Props.cpp.o	79da4112c23300bf
+4306	7394	1746045525957411510	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ShadowNodes.cpp.o	b1adeff460028ca6
+7395	7749	1746045526313391094	/home/thiago/placar-inocoop/android/app/build/intermediates/cxx/Debug/6u6l3f2u/obj/armeabi-v7a/libappmodules.so	b9499a8f04df9ab9
+1	4	0	/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/armeabi-v7a/CMakeFiles/cmake.verify_globs	e4fdf69700b5a777

@@ -1,0 +1,1 @@
+/home/thiago/placar-inocoop/android/app/build/intermediates/cxx/Debug/6u6l3f2u/obj/arm64-v8a

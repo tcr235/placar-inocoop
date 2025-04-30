@@ -1,0 +1,27 @@
+# Node
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+
+# iOS
+ios/Pods/
+ios/build/
+
+# Android
+android/app/build/
+android/.gradle/
+
+# React Native
+*.keystore
+.expo/
+.expo-shared/
+
+# IDEs
+.vscode/
+.idea/
+
+# Others
+.DS_Store
+.env

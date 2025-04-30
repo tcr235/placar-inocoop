@@ -1,0 +1,27 @@
+# ninja log v5
+1	5	0	/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/CMakeFiles/cmake.verify_globs	e53bd4c42c62c75
+2	2896	1746045531744081067	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/States.cpp.o	bcad1ddfdfbd5f40
+1	3357	1746045532209054658	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/EventEmitters.cpp.o	19076f169404cd21
+3	3411	1746045532264051538	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/EventEmitters.cpp.o	58303c63228de64a
+1	3581	1746045532429042176	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/BlePlxJSI-generated.cpp.o	2381b2c7abe3f1bc
+4	3819	1746045532666028729	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/Props.cpp.o	f2cae7b699f421bd
+1	3868	1746045532712026119	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/BlePlx-generated.cpp.o	a97b8816891bd865
+7	3959	1746045532799021183	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/RNPermissionsSpecJSI-generated.cpp.o	a0542c962c9391d5
+2	4224	1746045533068005927	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/Props.cpp.o	5df9cc5e2298b51b
+2	4740	1746045533584976645	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/ShadowNodes.cpp.o	2716dc1b74b83e50
+0	5053	1746045533868960559	CMakeFiles/appmodules.dir/home/thiago/placar-inocoop/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	9e6c0404830aaa64
+0	5099	1746045533931956991	CMakeFiles/appmodules.dir/OnLoad.cpp.o	936caabf8d48a261
+3	5186	1746045534029951443	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/ComponentDescriptors.cpp.o	259d7b376001ef81
+1	5265	1746045534107947033	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/ComponentDescriptors.cpp.o	7dffba6d054521a8
+2	5472	1746045534313935386	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/RNPermissionsSpec-generated.cpp.o	b2cd2b52f03d6211
+3358	6428	1746045535281880683	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/States.cpp.o	8c4cdcb1fecc5899
+3869	7037	1746045535890846310	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/Props.cpp.o	e8ad33b4d9024867
+2903	7132	1746045535984841005	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/ShadowNodes.cpp.o	4d4701edb2496100
+3959	7133	1746045535981841174	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/RNVectorIconsSpecJSI-generated.cpp.o	5d3519f3ad742e30
+3819	7210	1746045536066836383	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/EventEmitters.cpp.o	28c5b01eee3de2c7
+3585	7254	1746045536107834073	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ComponentDescriptors.cpp.o	2e954791e51fa57a
+4741	7356	1746045536215827988	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/States.cpp.o	b073b599c35b6ebd
+3411	7521	1746045536374819030	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/RNVectorIconsSpec-generated.cpp.o	730112dc5150f3cd
+4224	7852	1746045536707800268	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ShadowNodes.cpp.o	f435943e6d2455dd
+7852	8115	1746045536972785337	/home/thiago/placar-inocoop/android/app/build/intermediates/cxx/Debug/6u6l3f2u/obj/x86/libappmodules.so	cc7639c1f175f0da
+1	4	0	/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/CMakeFiles/cmake.verify_globs	e53bd4c42c62c75

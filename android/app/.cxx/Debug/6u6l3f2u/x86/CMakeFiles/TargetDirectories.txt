@@ -1,0 +1,12 @@
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/CMakeFiles/appmodules.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/CMakeFiles/edit_cache.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/CMakeFiles/rebuild_cache.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/BlePlx_autolinked_build/CMakeFiles/edit_cache.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/BlePlx_autolinked_build/CMakeFiles/rebuild_cache.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/RNPermissionsSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/RNPermissionsSpec_autolinked_build/CMakeFiles/rebuild_cache.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/rebuild_cache.dir

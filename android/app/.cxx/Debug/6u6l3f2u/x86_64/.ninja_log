@@ -1,0 +1,27 @@
+# ninja log v5
+1	4	0	/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86_64/CMakeFiles/cmake.verify_globs	2f1d56712dc83479
+1	3387	1746045542588470736	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/States.cpp.o	9d83d3e878f7bc88
+5	3523	1746045542726463041	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/EventEmitters.cpp.o	e7c287829ecdda27
+1	3601	1746045542802458804	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/EventEmitters.cpp.o	fd14c2638fc16adb
+1	4079	1746045543275432459	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/BlePlxJSI-generated.cpp.o	d5719ae2c7573eff
+2	4350	1746045543539417765	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/RNPermissionsSpec-generated.cpp.o	daeaa31538b27d76
+1	4426	1746045543620413257	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/Props.cpp.o	5a4cf99ddb172653
+6	4444	1746045543636412367	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/Props.cpp.o	543f1c4dd77ad077
+1	4469	1746045543663410864	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/BlePlx-generated.cpp.o	e4320fbba23a67f4
+0	4518	1746045543711408192	CMakeFiles/appmodules.dir/home/thiago/placar-inocoop/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	6de5ac6463d3c990
+1	4586	1746045543780404352	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/ShadowNodes.cpp.o	9ceb49aac13eeaaf
+1	4774	1746045543962394222	BlePlx_autolinked_build/CMakeFiles/react_codegen_BlePlx.dir/react/renderer/components/BlePlx/ComponentDescriptors.cpp.o	f3f7b18a6f0b716c
+7	4789	1746045543981393165	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/RNPermissionsSpecJSI-generated.cpp.o	5c4dd8321223a182
+2	5097	1746045544297375606	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/ComponentDescriptors.cpp.o	a964b9b4c08a2abb
+0	5295	1746045544482365327	CMakeFiles/appmodules.dir/OnLoad.cpp.o	f8b51e0ac3a97c81
+3523	6539	1746045545742295393	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/States.cpp.o	ea40235b314ee5a2
+4427	7261	1746045546465255337	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/Props.cpp.o	586861cfa7b1cac6
+4444	7301	1746045546502253289	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/RNVectorIconsSpecJSI-generated.cpp.o	1cfe847ee91baae0
+4469	7382	1746045546586248638	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ShadowNodes.cpp.o	f7747791cde66acc
+4519	7393	1746045546599247918	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/States.cpp.o	b1dd20c100b1976
+3393	7515	1746045546720241219	RNPermissionsSpec_autolinked_build/CMakeFiles/react_codegen_RNPermissionsSpec.dir/react/renderer/components/RNPermissionsSpec/ShadowNodes.cpp.o	274adeca94f4210b
+4351	7568	1746045546776238118	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/EventEmitters.cpp.o	b10c0d6efde5fe02
+4080	7721	1746045546925229869	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ComponentDescriptors.cpp.o	733ed67e0cacfce6
+3601	7839	1746045547043223339	RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/RNVectorIconsSpec-generated.cpp.o	731af6558a35be48
+7839	8163	1746045547374205045	/home/thiago/placar-inocoop/android/app/build/intermediates/cxx/Debug/6u6l3f2u/obj/x86_64/libappmodules.so	dde6cfba2ba60f83
+0	3	0	/home/thiago/placar-inocoop/android/app/.cxx/Debug/6u6l3f2u/x86_64/CMakeFiles/cmake.verify_globs	2f1d56712dc83479
