@@ -1,76 +1,71 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+import React, { useState } from 'react';
 import {
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
   View,
+  TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import useBLE from './src/utils/ble';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1,
+    justifyContent: 'center' as const,
+    alignItems: 'center' as const,
+    padding: 16,
   };
 
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the recommendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
+  const {
+    requestPermissions,
+    scanForPeripherals,
+    connectToDevice,
+    allDevices,
+  } = useBLE();
+
+  const [status, setStatus] = useState<string>('Idle');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const handleConnect = async () => {
+    setStatus('Requesting Permissions...');
+    setIsLoading(true);
+
+    const granted = await requestPermissions();
+    if (!granted) {
+      setStatus('Permition denied');
+      setIsLoading(false);
+      return;
+    }
+
+    setStatus('Searching device...');
+    scanForPeripherals();
+
+    setTimeout(async () => {
+      const placarDevice = allDevices.find((device) =>
+        device.name?.includes('Placar Inocoop')
+      );
+
+      if (placarDevice) {
+        setStatus(`Connecting ${placarDevice.name}...`);
+        try {
+          await connectToDevice(placarDevice);
+          setStatus('Connected with ' + placarDevice.name);
+        } catch (error) {
+          setStatus('Conection error');
+        }
+      } else {
+        setStatus('Device not found');
+      }
+
+      setIsLoading(false);
+    }, 6000);
+  };
 
   return (
     <View style={backgroundStyle}>
@@ -78,53 +73,44 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          { backgroundColor: isDarkMode ? '#444' : '#007AFF' },
+        ]}
+        onPress={handleConnect}
+        disabled={isLoading}
+      >
+        <Text style={styles.buttonText}>
+          {isLoading ? 'Connecting...' : 'Connect to Scoreboard'}
+        </Text>
+      </TouchableOpacity>
+
+      <View style={{ marginTop: 24 }}>
+        {isLoading && <ActivityIndicator size="large" color="#888" />}
+        <Text style={[styles.statusText, { color: isDarkMode ? '#fff' : '#000' }]}>
+          {status}
+        </Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
+  button: {
+    paddingVertical: 14,
     paddingHorizontal: 24,
+    borderRadius: 8,
   },
-  sectionTitle: {
-    fontSize: 24,
+  buttonText: {
+    fontSize: 18,
+    color: '#fff',
     fontWeight: '600',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  statusText: {
+    fontSize: 16,
+    marginTop: 12,
+    textAlign: 'center',
   },
 });
 
