@@ -26,6 +26,11 @@ function useBLE(): BluetoothLowEnergyApi {
     const [allDevices, setAllDevices] = useState<Device[]>([]);
     const [connectedDevice, setConnectedDevice] = useState<Device | null>(null);
 
+    const [scoreHome, setScoreHome] = useState<number>(0);
+    const [scoreVisitor, setScoreVisitor] = useState<number>(0);
+    const [setHome, setSetHome] = useState<number>(0);
+    const [setVisitor, setSetVisitor] = useState<number>(0);
+
     let clockIntervalId: NodeJS.Timeout | null = null;
 
     const requestAndroid31Permissions = async () => {
