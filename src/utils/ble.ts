@@ -1,6 +1,10 @@
 import { useMemo, useState } from "react";
 import { PermissionsAndroid, Platform } from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
+import { encode as btoa } from "base-64";
+
+const SERVICE_UUID = '0000FFE0-0000-1000-8000-00805F9B34FB';
+const CHARACTERISTIC_UUID = '0000FFE1-0000-1000-8000-00805F9B34FB';
 
 interface BluetoothLowEnergyApi {
     requestPermissions(): Promise<boolean>;
@@ -9,6 +13,9 @@ interface BluetoothLowEnergyApi {
     allDevices: Device[];
     connectToDevice(device: Device): Promise<void>;
     connectedDevice : Device | null;
+    disconnectFromDevice(): void;
+    startClockSync(device: Device): void;
+    stopClockSync(): void;
 }
 
 function useBLE(): BluetoothLowEnergyApi {
@@ -18,6 +25,8 @@ function useBLE(): BluetoothLowEnergyApi {
 
     const [allDevices, setAllDevices] = useState<Device[]>([]);
     const [connectedDevice, setConnectedDevice] = useState<Device | null>(null);
+
+    let clockIntervalId: NodeJS.Timeout | null = null;
 
     const requestAndroid31Permissions = async () => {
         const bluetoothScanPermissions = await PermissionsAndroid.request(
@@ -118,6 +127,57 @@ function useBLE(): BluetoothLowEnergyApi {
         }
     }
 
+    const disconnectFromDevice = async () => {
+        if (connectedDevice) {
+            await bleManager.cancelDeviceConnection(connectedDevice.id);
+            setConnectedDevice(null);
+        }
+    }
+
+    const buildFullClockString = (
+        mode: 'C',
+        score1: number,
+        score2: number,
+        set1: number,
+        set2: number
+    ): string => {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        return `${mode}${hours}:${minutes}${score1}${score2}${set1}${set2}`;
+    };
+    
+    const writeClockInfo = async (device: Device) => {
+        if (connectedDevice) {
+            const timeString = buildFullClockString('C', 0, 0, 0, 0);
+    
+            const base64Data = btoa(timeString);
+    
+            await device.writeCharacteristicWithResponseForService(
+                SERVICE_UUID,
+                CHARACTERISTIC_UUID,
+                base64Data
+            );
+        }
+    };
+
+    const startClockSync = (device: Device) => {
+        if (clockIntervalId) return;
+
+        clockIntervalId = setInterval(() => {
+            writeClockInfo(device).catch((error) => {
+                console.error("Erro ao enviar hora:", error);
+                stopClockSync();
+            });
+        }, 100);
+    };
+
+    const stopClockSync = () => {
+        if (clockIntervalId) {
+            clearInterval(clockIntervalId);
+            clockIntervalId = null;
+        }
+    };
     return {
         requestPermissions,
         scanForPeripherals,
@@ -125,6 +185,9 @@ function useBLE(): BluetoothLowEnergyApi {
         allDevices,
         connectToDevice,
         connectedDevice,
+        disconnectFromDevice,
+        startClockSync,
+        stopClockSync,
     };
 }
 

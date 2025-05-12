@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StatusBar,
   StyleSheet,
@@ -14,6 +14,17 @@ import useBLE from './src/utils/ble';
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  useEffect(() => {
+    if (connectedDevice) {
+      startClockSync(connectedDevice);
+    } else {
+      stopClockSync();
+    }
+    return () => {
+      stopClockSync();
+    };
+  });
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     flex: 1,
@@ -27,18 +38,32 @@ function App(): React.JSX.Element {
     scanForPeripherals,
     connectToDevice,
     allDevices,
+    connectedDevice,
+    disconnectFromDevice,
+    startClockSync,
+    stopClockSync,
   } = useBLE();
 
   const [status, setStatus] = useState<string>('Idle');
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleConnect = async () => {
+
+
+  const handleConnection = async () => {
     setStatus('Requesting Permissions...');
     setIsLoading(true);
 
     const granted = await requestPermissions();
     if (!granted) {
       setStatus('Permition denied');
+      setIsLoading(false);
+      return;
+    }
+
+    else if (connectedDevice) {
+      setStatus('Disconnecting...');
+      disconnectFromDevice();
+      setStatus('Disconnected');
       setIsLoading(false);
       return;
     }
@@ -78,11 +103,11 @@ function App(): React.JSX.Element {
           styles.button,
           { backgroundColor: isDarkMode ? '#444' : '#007AFF' },
         ]}
-        onPress={handleConnect}
+        onPress={handleConnection}
         disabled={isLoading}
       >
         <Text style={styles.buttonText}>
-          {isLoading ? 'Connecting...' : 'Connect to Scoreboard'}
+          {isLoading ? 'Connecting...' : connectedDevice ? 'Disconnect' : 'Connect'}
         </Text>
       </TouchableOpacity>
 

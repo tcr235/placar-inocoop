@@ -25,3 +25,7 @@ android/.gradle/
 # Others
 .DS_Store
 .env
+
+android/**/*.ninja_log
+android/**/*.bin
+android/**/*.json
