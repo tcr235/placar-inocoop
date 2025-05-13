@@ -41,28 +41,34 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    flexDirection: 'row',
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  button: {
-    backgroundColor: '#444',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 4,
-    marginHorizontal: 4,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 14,
-  },
-  timeText: {
-    color: '#fff',
-    fontSize: 16,
-    marginLeft: 8,
-  },
+    container: {
+        position: 'absolute',
+        top: 30,
+        left: 10,
+        width: '100%',
+        flexDirection: 'row',
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        zIndex: 100,
+    },
+    button: {
+        backgroundColor: '#444',
+        paddingHorizontal: 40,
+        paddingVertical: 10,
+        borderRadius: 4,
+        marginHorizontal: 4,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: '600',
+    },
+    timeText: {
+        color: '#fff',
+        fontSize: 20,
+        paddingHorizontal: 40,
+        paddingVertical: 10,
+    },
 });

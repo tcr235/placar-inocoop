@@ -84,6 +84,7 @@ function HomeScreen(): React.JSX.Element {
     >
         <ActionButton 
             label={isLoading ? 'Conectando...' : connectedDevice ? 'Desconectar' : 'Conectar'}
+            backgroundColor={connectedDevice ? "#ff0000" : "#444"}
             onPress={handleConnection}
             disabled={isLoading}
         />

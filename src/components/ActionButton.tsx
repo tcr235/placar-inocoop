@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
 
 interface ActionButtonProps {
   label: string;
+  backgroundColor?: string;
   onPress: () => void;
   disabled?: boolean;
   style?: ViewStyle;
@@ -10,6 +11,7 @@ interface ActionButtonProps {
 
 const ActionButton: React.FC<ActionButtonProps> = ({
   label,
+  backgroundColor,
   onPress,
   disabled = false,
   style,
@@ -18,7 +20,12 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     <TouchableOpacity
       onPress={onPress}
       disabled={disabled}
-      style={[styles.button, style, disabled && styles.disabled]}
+      style={[
+        styles.button,
+        backgroundColor ? { backgroundColor } : undefined,
+        style,
+        disabled && styles.disabled,
+      ]}
     >
       <Text style={styles.text}>{label}</Text>
     </TouchableOpacity>
@@ -28,8 +35,9 @@ const ActionButton: React.FC<ActionButtonProps> = ({
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#444',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+    marginHorizontal: 4,
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
