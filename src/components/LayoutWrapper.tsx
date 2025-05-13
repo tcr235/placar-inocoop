@@ -7,7 +7,7 @@ interface LayoutWrapperProps {
 }
 
 const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ children }) => {
-    const backgroundColor = Colors.darker;
+    const backgroundColor = '#000';
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor }]}>
