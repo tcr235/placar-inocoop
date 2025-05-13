@@ -6,7 +6,7 @@ import { encode as btoa } from "base-64";
 const SERVICE_UUID = '0000ffe0-0000-1000-8000-00805f9b34fb';
 const CHARACTERISTIC_UUID = '0000ffe1-0000-1000-8000-00805f9b34fb';
 
-interface BluetoothLowEnergyApi {
+export interface BluetoothLowEnergyApi {
     requestPermissions(): Promise<boolean>;
     scanForPeripherals(): void;
     onDeviceFound(callback: (device: string) => void): void;
