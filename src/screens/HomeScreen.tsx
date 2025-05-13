@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ActivityIndicator,
-} from 'react-native';
 import useBLE from '../utils/ble';
 import { HeaderBar } from '../components/HeaderBar';
 import ActionButton from '../components/ActionButton';
+import ClockDisplay from '../components/ClockDisplay';
 
 function HomeScreen(): React.JSX.Element {
 
@@ -37,8 +30,6 @@ function HomeScreen(): React.JSX.Element {
   }, [connectedDevice]);
   
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-
 
   const handleConnection = async () => {
     setIsLoading(true);
@@ -75,19 +66,26 @@ function HomeScreen(): React.JSX.Element {
   };
 
   return (
-    <HeaderBar
-        onScanDevices={handleConnection}
-        onResetScore={() => {}}
-        onToggleMode={() => {}}
-        isTournament={false}
-        time="00:00"
-    >
+    <HeaderBar>
         <ActionButton 
             label={isLoading ? 'Conectando...' : connectedDevice ? 'Desconectar' : 'Conectar'}
             backgroundColor={connectedDevice ? "#ff0000" : "#444"}
             onPress={handleConnection}
             disabled={isLoading}
         />
+
+        <ActionButton 
+            label="Zerar Placar"
+            backgroundColor="#444"
+            onPress={() => {}}
+        />
+
+        <ActionButton 
+            label="Modo Torneio"
+            backgroundColor="#444"
+            onPress={() => {}}
+        />
+        <ClockDisplay time="00:00" />
     </HeaderBar>
   );
 }
