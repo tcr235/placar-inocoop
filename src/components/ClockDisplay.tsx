@@ -1,13 +1,12 @@
 import { Text, StyleSheet } from "react-native";
+import { useClockContext } from "../context/ClockContext";
 
 
-interface ClockDisplayProps {
-    time: string;
-}
+const ClockDisplay: React.FC = () => {
+    const { currentTime } = useClockContext();
 
-const ClockDisplay: React.FC<ClockDisplayProps> = ({ time }) => {
     return (
-        <Text style={styles.timeText}>{time}</Text>
+        <Text style={styles.timeText}>{currentTime}</Text>
     );
 }
 

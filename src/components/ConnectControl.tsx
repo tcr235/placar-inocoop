@@ -1,5 +1,5 @@
 import ActionButton from "./ActionButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useBleContext } from "../context/BleContext";
 
 
@@ -11,21 +11,7 @@ const ConnectControl: React.FC = () => {
     allDevices,
     connectedDevice,
     disconnectFromDevice,
-    startClockSync,
-    stopClockSync,
   } = useBleContext();
-
-
-  useEffect(() => {
-    if (connectedDevice) {
-      startClockSync(connectedDevice);
-    } else {
-      stopClockSync();
-    }
-    return () => {
-      stopClockSync();
-    };
-  }, [connectedDevice]);
   
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
