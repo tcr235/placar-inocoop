@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { PermissionsAndroid, Platform } from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
 import { encode as btoa } from "base-64";
@@ -14,8 +14,13 @@ export interface BluetoothLowEnergyApi {
     connectToDevice(device: Device): Promise<Device | undefined>;
     connectedDevice : Device | null;
     disconnectFromDevice(): void;
-    startClockSync(device: Device): void;
-    stopClockSync(): void;
+    incrementScoreHome(): void;
+    decrementScoreHome(): void;
+    incrementScoreVisitor(): void;
+    decrementScoreVisitor(): void;
+    resetScores(): void;
+    scoreHome: number;
+    scoreVisitor: number;
 }
 
 function useBLE(): BluetoothLowEnergyApi {
@@ -26,12 +31,16 @@ function useBLE(): BluetoothLowEnergyApi {
     const [allDevices, setAllDevices] = useState<Device[]>([]);
     const [connectedDevice, setConnectedDevice] = useState<Device | null>(null);
 
-    const [scoreHome, setScoreHome] = useState<number>(0);
-    const [scoreVisitor, setScoreVisitor] = useState<number>(0);
-    const [setHome, setSetHome] = useState<number>(0);
-    const [setVisitor, setSetVisitor] = useState<number>(0);
+    const [scoreHome, setScoreHome] = useState(0);
+    const [scoreVisitor, setScoreVisitor] = useState(0);
 
-    let clockIntervalId: NodeJS.Timeout | null = null;
+    const incrementScoreHome = () => setScoreHome((prev) => prev + 1);
+    const decrementScoreHome = () => setScoreHome((prev) => (prev > 0 ? prev - 1 : 0));
+    const incrementScoreVisitor = () => setScoreVisitor((prev) => prev + 1);
+    const decrementScoreVisitor = () => setScoreVisitor((prev) => (prev > 0 ? prev - 1 : 0));
+    const resetScores = () => { setScoreHome(0); setScoreVisitor(0); };
+
+    const clockIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const requestAndroid31Permissions = async () => {
         const bluetoothScanPermissions = await PermissionsAndroid.request(
@@ -158,44 +167,53 @@ function useBLE(): BluetoothLowEnergyApi {
     const writeClockInfo = async () => {
         if (!connectedDevice) return;
       
-        const full = buildFullClockString('C', 5, 8, 0, 0);
-        const slices = [
-          full.slice(0, 1),
-          full.slice(1, 6),
-          full.slice(6, 7),
-          full.slice(7, 8),
-          full.slice(8, 9),
-          full.slice(9, 10),
-        ];
+        const full = buildFullClockString('C', scoreHome, scoreVisitor, 0, 0);
+        const parts: string[] = [];
+
+        parts.push(full.slice(0, 1));
+        parts.push(full.slice(1, 6));
+
+        const tail = full.slice(6);
+        const scoreHomeLength = scoreHome >= 10 ? 2 : 1;
+        const scoreVisitorLength = scoreVisitor >= 10 ? 2 : 1;
+
+        let index = 0;
+
+        parts.push(tail.slice(index, index += scoreHomeLength));
+        parts.push(tail.slice(index, index += scoreVisitorLength));
+        parts.push(tail.slice(index, index += 1));
+        parts.push(tail.slice(index, index += 1));
       
-        for (const part of slices) {
+        for (const part of parts) {
           const base64Part = btoa(part);
           await connectedDevice.writeCharacteristicWithoutResponseForService(
             SERVICE_UUID,
             CHARACTERISTIC_UUID,
             base64Part
           );
-          await new Promise(res => setTimeout(res, 20));
+          await new Promise(res => setTimeout(res, 5));
         }
       };
 
-    const startClockSync = () => {
-        if (clockIntervalId || !connectedDevice) return;
-
-        clockIntervalId = setInterval(() => {
-            writeClockInfo().catch((error) => {
-                console.error("Erro ao enviar hora:", error);
-                stopClockSync();
-            });
-        }, 250);
-    };
-
-    const stopClockSync = () => {
-        if (clockIntervalId) {
-            clearInterval(clockIntervalId);
-            clockIntervalId = null;
+      useEffect(() => {
+        if (connectedDevice) {
+          if (!clockIntervalRef.current) {
+            clockIntervalRef.current = setInterval(writeClockInfo, 140);
+          }
+        } else {
+          if (clockIntervalRef.current) {
+            clearInterval(clockIntervalRef.current);
+            clockIntervalRef.current = null;
+          }
         }
-    };
+        return () => {
+          if (clockIntervalRef.current) {
+            clearInterval(clockIntervalRef.current);
+            clockIntervalRef.current = null;
+          }
+        };
+      }, [connectedDevice, writeClockInfo]);
+
     return {
         requestPermissions,
         scanForPeripherals,
@@ -204,8 +222,13 @@ function useBLE(): BluetoothLowEnergyApi {
         connectToDevice,
         connectedDevice,
         disconnectFromDevice,
-        startClockSync,
-        stopClockSync,
+        incrementScoreHome,
+        decrementScoreHome,
+        incrementScoreVisitor,
+        decrementScoreVisitor,
+        resetScores,
+        scoreHome,
+        scoreVisitor,
     };
 }
 

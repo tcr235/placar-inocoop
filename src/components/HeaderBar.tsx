@@ -20,7 +20,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: 30,
+        top: 20,
         left: 10,
         width: '100%',
         flexDirection: 'row',

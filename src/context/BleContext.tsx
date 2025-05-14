@@ -12,17 +12,6 @@ interface BleProviderProps {
 export const BleProvider: React.FC<BleProviderProps> = ({ children }) => {
   const ble = useBLE();
 
-  useEffect(() => {
-    if (ble.connectedDevice) {
-      ble.startClockSync(ble.connectedDevice);
-    } else {
-      ble.stopClockSync();
-    }
-    return () => {
-      ble.stopClockSync();
-    };
-  }, [ble.connectedDevice]);
-
   return (
     <BleContext.Provider value={ble}>
       {children}

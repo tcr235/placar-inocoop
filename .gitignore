@@ -1,31 +1,40 @@
-# Node
 node_modules/
-package-lock.json
-
-# Logs
-*.log
-
-# iOS
+android/app/build/
+android/build/
+android/.gradle/
 ios/Pods/
 ios/build/
-
-# Android
-android/app/build/
-android/.gradle/
-
-# React Native
-*.keystore
 .expo/
 .expo-shared/
-
-# IDEs
+*.keystore
+*.apk
+*.aab
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+._*
 .vscode/
 .idea/
-
-# Others
-.DS_Store
+*.iml
+*.xccheckout
+xcuserdata/
+*.xcworkspace
 .env
-
+.env.local
+.env.development
+.env.production
+.env.test
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+metro-cache/
+*.tmp
 android/**/*.ninja_log
 android/**/*.bin
 android/**/*.json
+Podfile.lock
+ios/Podfile.lock
+coverage/
+.nyc_output/
