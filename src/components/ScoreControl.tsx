@@ -1,7 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import ActionButton from './ActionButton';
-import { useBleContext } from '../context/BleContext';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface ScoreControlProps {
     scoreHome: number;
@@ -23,15 +21,26 @@ export const ScoreControl: React.FC<ScoreControlProps> = ({
     return (
         <View style={styles.container}>
             <View style={styles.block}>
-                <ActionButton label="+" onPress={incrementScoreHome} />
-                <Text style={styles.scoreText}>{scoreHome}</Text>
-                <ActionButton label="-" onPress={decrementScoreHome} />
+                <TouchableOpacity style={styles.button} onPress={incrementScoreHome}>
+                    <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={decrementScoreHome}>
+                    <Text style={styles.buttonText}>-</Text>
+                </TouchableOpacity>
             </View>
-
-            <View style={styles.block}>
-                <ActionButton label="+" onPress={incrementScoreVisitor} />
+            <View style={styles.textBlock}>
+                <Text style={styles.scoreText}>{scoreHome}</Text>
+            </View>
+            <View style={styles.textBlock}>
                 <Text style={styles.scoreText}>{scoreVisitor}</Text>
-                <ActionButton label="-" onPress={decrementScoreVisitor} />
+            </View>
+            <View style={styles.block}>
+                <TouchableOpacity style={styles.button} onPress={incrementScoreVisitor}>
+                    <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={decrementScoreVisitor}>
+                    <Text style={styles.buttonText}>-</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -43,16 +52,38 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         width: '100%',
         alignItems: 'center',
-        paddingVertical: 16,
     },
     block: {
         flexDirection: 'column',
         alignItems: 'center',
+        marginTop: 25,
+        width: 'auto',
+    },
+    textBlock: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 25,
+        width: '30%',
     },
     scoreText: {
-        fontSize: 48,
+        fontSize: 70,
         fontWeight: 'bold',
         marginVertical: 8,
         color: '#fff',
+        width: '50%',
+        textAlign: 'center',
+    },
+    button: {
+        backgroundColor: '#000',
+        marginVertical: 2,
+        paddingHorizontal: 50,
+        width: '100%',
+    },
+    buttonText: {
+        color: '#ff0',
+        fontSize: 100,
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
 });

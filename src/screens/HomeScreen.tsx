@@ -14,6 +14,7 @@ function HomeScreen(): React.JSX.Element {
         decrementScoreVisitor,
         scoreHome,
         scoreVisitor,
+        resetScores,
     } = useBleContext();
 
   return (
@@ -22,13 +23,13 @@ function HomeScreen(): React.JSX.Element {
             <ConnectControl/>
             <ActionButton 
                 label="Zerar Placar"
-                backgroundColor="#444"
-                onPress={() => {}}
+                onPress={() => {
+                    resetScores();
+                }}
             />
     
             <ActionButton 
                 label="Modo Torneio"
-                backgroundColor="#444"
                 onPress={() => {}}
             />
             <ClockDisplay/>
